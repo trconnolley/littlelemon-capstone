@@ -1,16 +1,21 @@
+ const Nav = (props) => {
 
-
-export default function Nav() {
+    const stopBubble = (e) => {
+        e.stopPropagation();
+    }
+    //TODO: edit stopPropogation after links/routes added
     return (
-        <nav>
+        <nav className={props.className} onClick={props.onClick}>
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Menu</li>
-                <li>Reservations</li>
-                <li>Order Online</li>
-                <li>Login</li>
+                <li onClick={stopBubble}>Home</li>
+                <li onClick={stopBubble}>About</li>
+                <li onClick={stopBubble}>Menu</li>
+                <li onClick={stopBubble}>Reservations</li>
+                <li onClick={stopBubble}>Order Online</li>
+                <li onClick={stopBubble}>Login</li>
             </ul>
         </nav>
     )
 }
+
+export default Nav;
