@@ -71,6 +71,11 @@ input:focus, select:focus, textarea:focus, button:focus {
   outline: none;
 }
 
+.nav-link {
+  color: unset;
+  text-decoration: unset;
+}
+
 /* Layout */
 .container {
   width: 90%;
