@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
             <div className="container grid">
                 <div className="3u">
                     <Link to="/" className="nav-link">
-                        <img src={MonoLogo} alt="Little Lemon Logo - Monochrome"/>
+                        <img src={MonoLogo} className="logo" alt="Little Lemon Logo"/>
                     </Link>
                 </div>
                 <div className="3u">

@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Button from './Button'
 import {ReactComponent as DishIcon} from './../img/dish_icon.svg';
+import NextSection from './NextSection';
 
 const specialsList = [//would most likely be some kind of JS array based on database/api call
     {   id:'greek_salad',
@@ -68,7 +69,7 @@ const Carousel = ({type, children, ...props}) => {
 
 const Highlights = () => {
     return (
-        <section className="highlights primary-section">
+        <section id="highlights-section" className="highlights primary-section">
             <div className='flex container section-heading'>
                 <h2 className="font-subtitle">This Weeks Specials!</h2>
                 <Button>Online Menu</Button>
@@ -77,6 +78,7 @@ const Highlights = () => {
                 {specialsList.map((c) => {
                     return <Card key={c.id} card={c} />})}
             </Carousel>
+            <NextSection className="bg-yellow" uniqueID="testimonials-section"/>
         </section>
     )
 };

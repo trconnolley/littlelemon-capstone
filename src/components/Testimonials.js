@@ -1,7 +1,7 @@
 //import ProfilePicture from './ProfilePicture'
 import {ReactComponent as Star} from './../img/star.svg'
 import {ReactComponent as EmptyStar} from './../img/star-outline.svg'
-
+import NextSection from './NextSection';
 
  const CommentCard = ({card}) => {
     const rating = [];
@@ -61,13 +61,14 @@ import {ReactComponent as EmptyStar} from './../img/star-outline.svg'
    ];
 
     return (
-        <section className="testimonials primary-section bg-darkgrey">
+        <section id="testimonials-section" className="testimonials primary-section bg-darkgrey">
             <div className="container grid">
                 <h2 className='font-subtitle 12u color-lightgrey' style={{textAlign:'center'}}>Testimonials</h2>
                 {comments.map((c) => {
                     return <CommentCard key={c.id} card={c}/>
                 })}
             </div>
+            <NextSection className="bg-yellow" uniqueID="about-section"/>
         </section>
     )
 }

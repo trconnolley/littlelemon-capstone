@@ -1,9 +1,9 @@
 
 
 const Button = ({ type, children, ...buttonProps}) => {
-    const className = type === "primary" ? "PrimaryButton" : "SecondaryButton";
+    const classNameType = type === "primary" ? "PrimaryButton" : "SecondaryButton";
     return (
-        <button className={`button ${className}`} {...buttonProps}>
+        <button className={`button ${classNameType}`} {...buttonProps}>
             {children}
         </button>
     )
