@@ -1,7 +1,7 @@
 
 const About = () => {
     return (
-        <section id="about-section" className="about-section primary-section">
+        <section id="about-section" className="about-section primary-section" style={{maxHeight:"calc(100vh - 80px)", paddingTop: "80px"}}>
             <div className="container grid">
                 <div className="6u">
                     <h1 className="font-title color-green">Little Lemon</h1>
@@ -11,7 +11,7 @@ const About = () => {
                     Etiam vel pharetra ex, sit amet luctus magna. Suspendisse sed cursus leo, non cursus mi.
                     </p>
                 </div>
-                <div className="6u" style={{position:'relative'}}>
+                <div className="6u stack-container" style={{position:'relative'}}>
                     <img className="stacked-image one" src={require('./../img/restaurant.jpg')}
                         alt="Spacious and welcoming dining room"/>
                     <img className="stacked-image two" src={require('./../img/Mario_and_Adrian_A.jpg')}

@@ -1,5 +1,4 @@
-import {useState} from 'react';
-import Button from './Button'
+import { LinkButton } from './Button';
 import {ReactComponent as DishIcon} from './../img/dish_icon.svg';
 import NextSection from './NextSection';
 
@@ -44,7 +43,7 @@ const Card = ({card}) => {
             </div>
             <div className='flex card-heading'>
                 <h3 className="font-card-title">{card.title}</h3>
-                <h4 className="font-card-title color-grapefruit">$ {card.price}</h4>
+                <h4 className="font-card-title bold">$ {card.price}</h4>
             </div>
             <p className="font-paragraph color-darkgrey card-description">{card.description}</p>
             <a className='font-card-title card-link' href={`/order?dish=${card.id}`}>Order for Delivery <DishIcon/></a>
@@ -72,7 +71,7 @@ const Highlights = () => {
         <section id="highlights-section" className="highlights primary-section">
             <div className='flex container section-heading'>
                 <h2 className="font-subtitle">This Weeks Specials!</h2>
-                <Button>Online Menu</Button>
+                <LinkButton destination="menu">Online Menu</LinkButton>
             </div>
             <Carousel type="horizontal">
                 {specialsList.map((c) => {

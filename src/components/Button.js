@@ -1,4 +1,5 @@
 
+import {Link} from 'react-router-dom';
 
 const Button = ({ type, children, ...buttonProps}) => {
     const classNameType = type === "primary" ? "PrimaryButton" : "SecondaryButton";
@@ -9,6 +10,14 @@ const Button = ({ type, children, ...buttonProps}) => {
     )
 };
 
+const LinkButton = ({type, destination, children, ...linkProps}) => {
+    const classNameType = type === "primary" ? "PrimaryButton" : "SecondaryButton";
+    return (
+        <Link to={`/${destination}`} className={`button ${classNameType}`} {...linkProps}>
+            {children}
+        </Link>
+    )
+}
 // const SubmitButton = ({type, children, ...buttonProps}) => {
 //     return (
 //         <Button
@@ -22,3 +31,4 @@ const Button = ({ type, children, ...buttonProps}) => {
 // };
 
 export default Button;
+export {LinkButton};

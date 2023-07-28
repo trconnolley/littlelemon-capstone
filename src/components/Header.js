@@ -7,8 +7,9 @@ import {Link} from 'react-router-dom';
  const Header = () => {
     const [showMenu, setShowMenu] = React.useState(false);
 
-    const onNavButtonClick = () => {
+    const onNavButtonClick = (e) => {
         setShowMenu((curr) => !curr)
+        e.stopPropagation();
     }
 
     return (

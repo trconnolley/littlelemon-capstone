@@ -139,6 +139,10 @@ input:focus, select:focus, textarea:focus, button:focus {
 .bg-peach {background-color: var(--secondary-color-peach);}
 .bg-lightgrey {background-color: var(--secondary-color-lightgrey);}
 .bg-darkgrey {background-color: var(--secondary-color-darkgrey);}
+
+a.blend {
+  text-decoration: none;
+}
 /* ::::::::::::::::::::::: End Styles ::::::::::::::::::::::: */
 
 
@@ -168,6 +172,10 @@ input:focus, select:focus, textarea:focus, button:focus {
   align-items: center;
   justify-content: space-between;
 }
+.flex.column {
+  flex-direction: column;
+  justify-content: flex-start;
+}
 .flex.stretch {
   align-items:stretch;
 }
@@ -194,6 +202,14 @@ input:focus, select:focus, textarea:focus, button:focus {
   min-height: calc(100vh - 120px);
   /* overflow: hidden; */
   overflow-y: visible;
+}
+
+.first-section {
+  padding-top: 40px;
+}
+
+.fit-section {
+  min-height: unset;
 }
 
 .section-heading {
@@ -352,15 +368,98 @@ main {
 /* ::::::::::::::::::::::: End Primary Elements ::::::::::::::::::::::: */
 
 /* ::::::::::::::::::::::: Components ::::::::::::::::::::::: */
-/* .hero {
-  overflow: unset;
-  overflow-y: visible;
-} */
+
 .hero img {
   max-height: 350px;
   width: 100vw;
   position: relative;
   right: 5vw;
+}
+
+.hero .button, .reservations .button, .search .button {
+  width: 100%;
+}
+
+.reservations {
+
+}
+.reservation-form, .search-form {
+  flex-flow: row wrap;
+  gap: 20px 15px
+}
+
+.inputSection:nth-child(1),
+.inputSection:nth-child(2) {
+ width: calc(50% - 10px);
+}
+.inputSection:nth-child(3),
+.inputSection:nth-child(4),
+.inputSection:nth-child(5) {
+  width: 100%;
+}
+.inputSection > label {
+  color: var(--secondary-color-lightgrey);
+  font-family: 'Karla';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  display: block;
+  margin: .25em;
+}
+
+.inputSection > input, .inputSection > select {
+  width: 100%;
+  font-size: 18px;
+  padding: .5em 1em .5em 1em;
+  border-radius: 16px;
+}
+
+.incognito-field > label {
+  color: var(--secondary-color-lightgrey);
+  font-family: 'Karla';
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  display: block;
+  margin: .25em;
+}
+
+.incognito-field > input {
+  color: var(--primary-color-yellow);
+  background-color: var(--secondary-color-darkgrey);
+  border: none;
+  border-bottom: 1px solid var(--secondary-color-lightgrey);
+  box-shadow: none;
+  width: 100%;
+  /* font-size: 18px; */
+  padding: .5em 1em .5em 1em;
+  position: relative;
+}
+
+.incognito-field > input::-webkit-calendar-picker-indicator{
+  /* color: var(--primary-color-yellow); */
+  position: absolute;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-image: none;
+}
+
+.incognito-field > input::-webkit-calendar-picker-indicator *{
+  color: var(--primary-color-yellow);
+}
+
+.callUs {
+
+}
+.callUs > p {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.2em;
 }
 
 .button {
@@ -369,13 +468,14 @@ main {
   font-family: 'Karla';
   font-weight: 700;
   font-size: 18px;
+  color: black;
+  text-decoration: none;
   padding: .75em 1.5em .75em 1.5em;
   border: none;
   cursor: pointer;
 }
-
-.hero .button {
-  width: 100%;
+a.button {
+  display: inline-block;
 }
 
 .button:active {
@@ -464,7 +564,6 @@ main {
   object-fit: cover;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-
 }
 
 .card-heading {
@@ -509,23 +608,23 @@ main {
 }
 
 .rating {
-  margin: 1em;
+  margin: 1em 1em 1em .5em;
 }
 .rating > .stars {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 2px;
+  gap: 0px;
 }
 .rating > h3 {
   font-family: 'Karla';
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 22x;
 }
 
 .stars > svg {
-  width: 25px;
+  width: 22px;
 }
 
 .comment-quote {
@@ -548,32 +647,31 @@ main {
   border-radius: 50%;
 }
 
-.about-section {
-
+.stack-container {
+  height: 300px;
 }
 
 .stacked-image {
   position: absolute;
   width: 60%;
-  height:90%;
+  height:200px;
   max-height:90%;
   object-fit: cover;
   box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.4);
 }
 
 .stacked-image.one {
-  bottom: -50px;
+  bottom: 50px;
   right: 0;
 }
 
 .stacked-image.two {
-  top: -50px;
   left: 0;
   object-position: 80%;
 }
 /*  ::::::::::::::::::::::: End Components ::::::::::::::::::::::: */
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 959px) {
 /* Tablet size */
 
 }
@@ -603,39 +701,22 @@ main {
     .\32 u {grid-column: span 2;}
     .\31 u {grid-column: span 1;}
 
-  .flex {
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .flex.stretch {
-    align-items:stretch;
-  }
-
   .row {
-    display: block;
     margin-bottom: 20px;
+    /* TODO: shouuld this be bigger? */
   }
-
-  .container {
-
-  }
-
-  /* .container-wide {
-
-  } */
 
   .primary-section {
     margin-bottom: 80px;
     padding-top: 80px;
     padding-bottom: 80px;
+    max-height: unset;
+    min-height: unset;
   }
 
   .section-heading {
     margin-bottom: 40px;
   }
-
-
 
   /* ::::::::::::::::::::::: End Layout ::::::::::::::::::::::: */
 
@@ -678,244 +759,100 @@ main {
   /* ::::::::::::::::::::::: End Primary Elements ::::::::::::::::::::::: */
 
   /* ::::::::::::::::::::::: components ::::::::::::::::::::::: */
-    .hero {
-      
-    }
+
     .hero img {
       position: absolute;
       height: 160%;
       width: 100%;
       max-height: 400px;
       border-radius: 16px;
+      right: unset;
     }
 
-    .hero img {
-      max-height: 300px;
-      width: 100vw;
-      position: relative;
-      right: 5vw;
-    }
-    
-    .button {
-      background-color: var(--primary-color-yellow);
-      border-radius: 16px;
-      font-family: 'Karla';
-      font-weight: 700;
-      font-size: 18px;
-      padding: .75em 1.5em .75em 1.5em;
-      border: none;
-      cursor: pointer;
-    }
-    
     .hero .button {
-      width: 100%;
+      width: unset;
     }
-    
-    .button:active {
-      background-color: var(--secondary-color-lightgrey);
-    }
-    
+
     .next-section {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      position: absolute;
-      top: calc(100% - 25px);
-      left: 50%;
-      transform: translateX(-50%);
-      cursor: pointer;
-      z-index: 1;
+      display: none;
     }
-    
-    .carousel {
-      position: relative;
-    }
-    
-    .carousel > .slider {
-      display: flex;
-      gap: 30px;
-      align-items: stretch;
-    }
-    
-    .carousel > .slider.horizontal {
-      flex-flow: row nowrap;
-      overflow-x: hidden;
-    }
-    
-    .carousel > .slider.vertical {
-      flex-flow: column nowrap;
-      overflow-y: visible;
-    }
-    
-    .carousel .chevron {
-      width: 50px;
-      height: 50px;
-      border-top-right-radius: 5px;
-      position: absolute;
-      top: 50%;
-    }
-    
-    .carousel .chevron.next-slide {
-      left: 100%;
-      transform: translateY(-50%) rotateZ(45deg) skew(5deg,5deg);
-      border-top: 15px solid rgba(117, 117, 117,.4);
-      border-right: 15px solid rgba(117, 117, 117,.5);
-    }
-    
-    .carousel .chevron.prev-slide {
-      right: 100%;
-      transform: translateY(-50%) rotateZ(225deg) skew(5deg,5deg);
-      border-top: 15px solid rgba(117, 117, 117,.5);
-      border-right: 15px solid rgba(117, 117, 117,.4);
-    }
-    
-    .card {
-      /*
-      TODO: add a card flip/zoom effect???
-      min-width: calc(33.3333333333% - 20px);
-      max-width: calc(33.3333333333% - 20px);
-      width: calc(33.3333333333% - 20px); */
-      width: 300px;
-      min-width: 300px;
-      padding-bottom: 3em;
-      position: relative;
-      border-radius: 16px;
-    }
-    
-    .card > .image-holder {
-      width: 100%;
-      padding-top: calc(2 / 3 * 100%);
-      position: relative;
-      margin-bottom: 20px;
-    }
-    
-    .card > .image-holder > img {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-top-left-radius: 16px;
-      border-top-right-radius: 16px;
-    
-    }
-    
-    .card-heading {
-      margin-bottom: 20px;
-      padding: 0 1em 0 1em;
-    }
-    
-    .card-description {
-      margin-bottom: 20px;
-      padding: 0 1em 0 1em;
-    }
-    
-    .card-link {
-      position: absolute;
-      bottom:0;
-      left: 50%;
-      transform: translateX(-50%);
-      white-space: nowrap;
-      padding: 1em .5em 1em .5em;
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 1em;
-      color: #000000;
-      text-decoration: none;
-    }
-    .card-link:hover, .card-link:active {
-      text-decoration: underline;
-    }
-    .card-link > svg {
-      height: 1em;
-    }
-    
-    .comment-card {
-      border-radius: 16px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    
+
     .rating {
+      margin: 0;
       margin: 1em;
     }
+
     .rating > .stars {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
       gap: 2px;
     }
     .rating > h3 {
-      font-family: 'Karla';
-      font-weight: 700;
       font-size: 22px;
-      line-height: 22x;
     }
-    
+
     .stars > svg {
       width: 25px;
     }
-    
-    .comment-quote {
-      padding: 0 1em 0 1em;
-      margin-bottom: .5em;
+
+    .stack-container {
+      height: unset;
     }
-    
-    .comment-profile {
-      padding: 0 1em 0.5em 1em;
-      display: flex;
-      gap: 1.5em;
-    }
-    
-    .comment-profile > h3 {
-      margin-top: .5em;
-    }
-    
-    .profile-picture {
-      width: 60px;
-      border-radius: 50%;
-    }
-    
-    .about-section {
-    
-    }
-    
+
     .stacked-image {
-      position: absolute;
-      width: 60%;
       height:90%;
-      max-height:90%;
-      object-fit: cover;
-      box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.4);
     }
-    
+
     .stacked-image.one {
       bottom: -50px;
-      right: 0;
     }
-    
+
     .stacked-image.two {
       top: -50px;
-      left: 0;
-      object-position: 80%;
     }
-
-
-
-
 
     .mobile-only {
       display: none;
     }
 }
 
+@media screen and (min-width: 769px) and (max-width: 1180px) {
+  /* Adjustment for Tablet sizes */
+  .rating {
+    margin: 1em 1em 1em .5em;
+  }
+  .rating > .stars {
+    gap: 0px;
+  }
+  .rating > h3 {
+    font-size: 20px;
+  }
+
+  .stars > svg {
+    width: 22px;
+  }
+
+  .comment-profile > h3 {
+    font-size: 16px;
+  }
+  .profile-picture {
+    width: 50px;
+  }
+  .stacked-image {
+    height:60%;
+  }
+
+  .stacked-image.one {
+    bottom: 20px;
+  }
+
+  .stacked-image.two {
+    top: 40px;
+  }
+}
 @media screen and (min-width: 960px) {
   header > .container {
     gap: 100px;
+  }
+  .font-lead {
+    font-size: 20px;
   }
 }
