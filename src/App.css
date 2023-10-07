@@ -383,6 +383,7 @@ main {
 .reservations {
 
 }
+
 .reservation-form, .search-form {
   flex-flow: row wrap;
   gap: 20px 15px
@@ -431,8 +432,8 @@ main {
   border-bottom: 1px solid var(--secondary-color-lightgrey);
   box-shadow: none;
   width: 100%;
-  /* font-size: 18px; */
-  padding: .5em 1em .5em 1em;
+  font-size: 50px;
+  padding: 10px;
   position: relative;
 }
 
@@ -450,6 +451,31 @@ main {
 
 .incognito-field > input::-webkit-calendar-picker-indicator *{
   color: var(--primary-color-yellow);
+}
+
+.tableOption {
+  font-size: 25px;
+  height: 3em;
+  padding: .5em 1em .5em 1em;
+  position: relative;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.tableOption:hover {
+  transform: scale(1.05);
+}
+
+.tableOption > span {
+  line-height: 2em;
+}
+
+.tableOption > svg {
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2em;
 }
 
 .callUs {
@@ -686,6 +712,9 @@ a.button {
   .grid {
     grid-template-columns: repeat(12,1fr);
     gap: 50px 20px;
+  }
+  .grid.tight-gutter {
+    gap: 20px 15px;
   }
 
     .\31 2u {grid-column: span 12;}

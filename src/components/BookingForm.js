@@ -2,16 +2,8 @@ import {useState} from 'react';
 import Button from './Button';
 import NextSection from './NextSection'
 
-const BookingForm = ({getAvailableTimes}) => {
-    let d = new Date();
-    let m = d.getMonth() + 1;
-
-    let today = `${d.getFullYear()}-${(m < 10) ? '0' + m : m}-${(d.getDate() < 10) ? '0' + d.getDate(): d.getDate()}`;
-    const [date, setDate] = useState(today);
-    const [time, setTime] = useState("18:00");
-    const [people, setPeople] = useState("2");
-    const [occasion, setOccasion] = useState("2");
-
+const BookingForm = (props) => {
+    const {getAvailableTimes, date, setDate, time, setTime, people, setPeople, occasion, setOccasion} = props
     return (
         <section id="reservations-section" className="reservations primary-section first-section fit-section bg-darkgrey">
             <div className="container grid">
